@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Website Detector</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-alert">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <path d="M12 8v4"></path>
+          <path d="M12 16h.01"></path>
+        </svg>
+      </div>
+      <h1>Phishing Detector</h1>
+    </div>
+    
+    <div class="content">
+      <div id="initial-view">
+        <p>Scan the current website for phishing attempts</p>
+        <button id="scan-btn" class="btn primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan">
+            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+            <line x1="7" y1="12" x2="17" y2="12"></line>
+          </svg>
+          Scan Website
+        </button>
+      </div>
+      
+      <div id="loading-view" class="hidden">
+        <div class="loader"></div>
+        <p>Analyzing website...</p>
+      </div>
+      
+      <div id="result-view" class="hidden">
+        <div id="result-icon" class="result-icon">
+          <!-- Will be filled dynamically -->
+        </div>
+        <h2 id="result-title">Website is safe</h2>
+        <div id="result-score" class="score">
+          <div class="score-label">Confidence:</div>
+          <div class="score-value">98%</div>
+        </div>
+        <div id="result-message"></div>
+        <div class="actions">
+          <button id="details-btn" class="btn secondary">View Details</button>
+          <button id="back-btn" class="btn outline">Back</button>
+        </div>
+      </div>
+      
+      <div id="details-view" class="hidden">
+        <h2>Detection Details</h2>
+        <div id="features-list" class="features-list">
+          <!-- Will be filled dynamically -->
+        </div>
+        <button id="back-from-details-btn" class="btn outline">Back</button>
+      </div>
+      
+      <div id="error-view" class="hidden">
+        <div class="error-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-circle">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h2>Error</h2>
+        <p id="error-message">Something went wrong. Please try again.</p>
+        <button id="error-back-btn" class="btn outline">Back</button>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>Powered by XGBoost ML</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
